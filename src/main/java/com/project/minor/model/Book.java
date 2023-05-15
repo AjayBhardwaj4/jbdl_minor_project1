@@ -1,5 +1,7 @@
 package com.project.minor.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.project.minor.model.response.BookSearchResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +25,7 @@ public class Book {
     private int id;
 
     private String name;
+
     private int cost;
 
     @Enumerated(value = EnumType.STRING)
@@ -30,6 +33,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "author_id")
+    @JsonIgnoreProperties("bookList")
     private Author author;
 
     @ManyToOne
@@ -44,5 +48,19 @@ public class Book {
 
     @UpdateTimestamp
     private Date updatedOn;
+
+    public BookSearchResponse toBookSearchResponse() {
+        return BookSearchResponse.builder()
+                .id(id)
+                .name(name)
+                .cost(cost)
+                .genre(genre)
+                .author(author)
+                .student(student)
+                .transactionList(transactionList)
+                .createdOn(createdOn)
+                .updatedOn(updatedOn)
+                .build();
+    }
 
 }

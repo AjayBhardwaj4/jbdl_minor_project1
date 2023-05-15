@@ -1,4 +1,4 @@
-package com.project.minor.model.Request;
+package com.project.minor.model.request;
 
 import com.project.minor.model.Author;
 import com.project.minor.model.Book;

@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -40,7 +39,7 @@ public class Book {
     @JoinColumn
     private Student student;
 
-    @OneToMany(mappedBy = "my_book")
+    @OneToMany(mappedBy = "book")
     private List<Transaction> transactionList;
 
     @CreationTimestamp

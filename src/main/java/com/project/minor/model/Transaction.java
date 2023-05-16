@@ -19,18 +19,20 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Enumerated
+    private String externalTxnId;
+
+    @Enumerated(value = EnumType.STRING)
     private TransactionType transactionType;
 
     private double payment;
 
     @ManyToOne
     @JoinColumn
-    private Book my_book;
+    private Book book;
 
     @ManyToOne
     @JoinColumn
-    private Student my_student;
+    private Student student;
 
     @CreationTimestamp
     private Date transactionDate;

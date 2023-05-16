@@ -43,6 +43,6 @@ public class Student {
     @OneToMany(mappedBy = "student")
     private List<Book> bookList;
 
-    @OneToMany(mappedBy = "my_student")
+    @OneToMany(mappedBy = "student")
     private List<Transaction> transactionList;
 }
